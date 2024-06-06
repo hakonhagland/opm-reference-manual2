@@ -39,12 +39,12 @@ class Templates:
                  """###KEYWORD_NAME### – ###KEYWORD_DESCRIPTION###"""
                  """</text:bookmark-ref></text:a></text:p>\n"""
 """      </table:table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
-      <table:covered-table-cell></table:covered-table-cell>
+      <table:covered-table-cell/>
+      <table:covered-table-cell/>
+      <table:covered-table-cell/>
+      <table:covered-table-cell/>
+      <table:covered-table-cell/>
+      <table:covered-table-cell/>
       <table:table-cell table:style-name="AppendixA_TableCell_###COLOR###" """
                                      """office:value-type="string">\n"""
 """       <text:p text:style-name="_40_Table_20_Contents"></text:p>
