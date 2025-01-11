@@ -182,6 +182,8 @@ def add_alias(kw_uri_map: dict[str, str], keyword: str, alias: str) -> None:
 @click.option('--check-changed', is_flag=True, help='Check if files have changed')
 def gen_kw_uri_map_cli(maindir: str|None, keyword_dir: str|None, check_changed: bool) -> None:
     logging.basicConfig(level=logging.INFO)
+    print("Failing here to debug github actions")
+    exit(2)
     keyword_dir = helpers.get_keyword_dir(keyword_dir)
     maindir = helpers.get_maindir(maindir)
     kw_uri_map = get_kw_uri_map(maindir, keyword_dir)

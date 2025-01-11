@@ -7,10 +7,10 @@ name: Check for missing keyword linking
 on:
     push:
       paths:
-        - 'parts/**/*.fodt'
+        - '**'
     pull_request:
       paths:
-        - 'parts/**/*.fodt'
+        - '**'
 
 permissions:
   contents: read
@@ -30,11 +30,22 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install poetry
-        uses: abatilo/actions-poetry@v2
+        uses: abatilo/actions-poetry@v3
+        with:
+          poetry-version: "1.8.4"  # The "latest" version is not working
       - name: Install dependencies
         run: |
           cd scripts/python
           poetry install
+      - name: Direct Python call
+        run: |
+          cd scripts/python
+          poetry run python -m fodt.keyword_uri_map_generator --help
+      - name: Show entry point script
+        run: |
+          cd scripts/python
+          ENTRY_POINT=$(poetry run which fodt-gen-kw-uri-map)
+          head -n 30 "$ENTRY_POINT"
       - name: Run checks
         run: |
           cd scripts/python
