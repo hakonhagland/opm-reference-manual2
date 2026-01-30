@@ -3,3 +3,4 @@ __pycache__/
 /parts/chapters/backup/
 .~lock*
 .DS_Store
+/build/

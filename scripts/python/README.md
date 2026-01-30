@@ -104,6 +104,40 @@ $ fodt-extract-style-info --maindir=../../parts
 
 Further, depending on the nature of the modification, all sub documents may also need to be updated.
 
+## Extracting keyword documentation to markdown
+
+For AI-assisted search or easy reading, you can generate clean markdown versions of all
+keyword documentation files:
+
+```
+$ fodt-extract-keywords
+```
+
+This will:
+1. Parse all keyword `.fodt` files in `parts/chapters/subsections/`
+2. Extract the text content, removing XML boilerplate
+3. Generate markdown files in `build/keywords/`
+4. Create an `INDEX.md` with links to all keywords
+
+The output is structured to mirror the source:
+```
+build/keywords/
+├── INDEX.md           # Master keyword list
+├── 4.3/
+│   ├── COLUMNS.md
+│   └── ...
+├── 10.3/
+│   ├── RESTART.md
+│   └── ...
+```
+
+Options:
+- `--repo PATH` - Specify repository root (auto-detected by default)
+- `--output PATH` - Specify output directory (default: `{repo}/build/keywords`)
+- `--verbose` - Show progress for each file
+
+The `build/` directory is gitignored. Generation takes about 6 seconds for all ~1,463 keywords.
+
 ## Previous work
 
 See [Splitting](docs/Splitting-The-Manual.md) for the original work on splitting the manual into
